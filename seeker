@@ -1,1 +1,61 @@
-seeker
+
+
+Dapatkan Lokasi Akurat menggunakan Situs Web Palsu
+    
+
+Konsep di balik Seeker sederhana saja, sama seperti kita menghosting halaman phishing untuk mendapatkan kredensial, mengapa tidak menghosting halaman palsu yang meminta lokasi Anda seperti banyak situs web berbasis lokasi populer.
+
+Seeker menghosting situs web palsu di Server PHP Internal dan menggunakan Ngrok , situs web meminta Izin Lokasi dan jika pengguna mengizinkannya, kita bisa mendapatkan:
+
+Garis bujur
+Garis Lintang
+Ketepatan
+Ketinggian - Tidak selalu tersedia
+Arah - Hanya tersedia jika pengguna bergerak
+Kecepatan - Hanya tersedia jika pengguna bergerak
+Bersamaan dengan Informasi Lokasi, kami juga mendapatkan Informasi Perangkat tanpa izin apa pun:
+
+Sistem operasi
+Platform
+Jumlah Inti CPU
+Jumlah RAM - Hasil Perkiraan
+Resolusi layar
+Informasi GPU
+Nama dan Versi Browser
+Alamat IP Publik
+Alat ini adalah Bukti Konsep dan ditujukan untuk Tujuan Pendidikan Saja, Seeker menunjukkan data apa yang dapat dikumpulkan situs web jahat tentang Anda dan perangkat Anda dan mengapa Anda tidak boleh mengeklik tautan acak dan mengizinkan izin penting seperti Lokasi, dll.
+
+Alat dan layanan lain menawarkan Geolokasi IP yang tidak terlalu akurat dan tidak memberikan lokasi pengguna.
+
+Secara umum jika pengguna menerima izin lokasi, Akurasi informasi yang diterima akurat hingga sekitar 30 meter .
+
+Catatan : Pada iPhone karena beberapa alasan akurasi lokasi sekitar 65 meter.
+
+Diuji pada:
+Kali Linux 2018.2
+Ubuntu 18.04
+Distro berbasis Arch Linux
+Termux
+Kali Linux (WSL)
+Sistem Operasi Parrot
+Sistem Operasi Zorin
+Instalasi
+Ubuntu/Kali Linux
+git clone https://github.com/thewhiteh4t/seeker.git
+cd seeker/
+chmod 777 install.sh
+./install.sh
+
+# OR using Docker
+
+# Install docker
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+# Build Seeker
+cd seeker/
+docker build -t seeker .
+
+# Launch seeker
+docker run -t --rm seeker
